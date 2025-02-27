@@ -181,7 +181,7 @@ public static class libbson
 	*
 	* Returns: A newly allocated bson_t that should be freed with bson_destroy().
 	*/
-	[CLink] public static extern bson_t* bson_new();
+	[CLink] public static extern bson_t* bson_new(void);
 
 	[CLink] public static extern bson_t* bson_new_from_json(uint8_t* data, ssize_t len, bson_error_t* error);
 

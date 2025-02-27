@@ -5,8 +5,6 @@ namespace libbsonBeef;
 
 extension libbson
 {
-
-
 	/*
 	*--------------------------------------------------------------------------
 	*
@@ -22,13 +20,13 @@ extension libbson
 	*--------------------------------------------------------------------------
 	*/
 
-	typealias bson_unichar_t = uint32_t;
+	public typealias bson_unichar_t = uint32_t;
 
 
 	/**
 	* @brief Flags configuring the creation of a bson_context_t
 	*/
-	enum bson_context_flags_t
+	public enum bson_context_flags_t
 	{
 	/** Use default options */
 		BSON_CONTEXT_NONE = 0,
@@ -154,7 +152,8 @@ extension libbson
 	* on http://bsonspec.org. If you would like the bson_oid_t in string form
 	* see bson_oid_to_string() or bson_oid_to_string_r().
 	*/
-	struct bson_oid_t
+	[CRepr]
+	public struct bson_oid_t
 	{
 		uint8_t[12] bytes;
 	}
@@ -173,7 +172,8 @@ extension libbson
 	* type.  The structure stores the 128 bits such that they correspond to the
 	* native format for the IEEE decimal128 type, if it is implemented.
 	**/
-	struct bson_decimal128_t
+	[CRepr]
+	public struct bson_decimal128_t
 	{
 #if BSON_BYTE_ORDER_LITTLE_ENDIAN
 			uint64_t low;
@@ -198,7 +198,7 @@ extension libbson
 	* %BSON_VALIDATE_UTF8_ALLOW_NULL: Allow NUL bytes in UTF-8 text.
 	* %BSON_VALIDATE_EMPTY_KEYS: Prohibit zero-length field names
 	*/
-	enum bson_validate_flags_t
+	public enum bson_validate_flags_t
 	{
 		BSON_VALIDATE_NONE = 0,
 		BSON_VALIDATE_UTF8 = (1 << 0),
@@ -215,7 +215,7 @@ extension libbson
 	* This enumeration contains all of the possible types within a BSON document.
 	* Use bson_iter_type() to fetch the type of a field while iterating over it.
 	*/
-	enum bson_type_t
+	public enum bson_type_t
 	{
 		BSON_TYPE_EOD = 0x00,
 		BSON_TYPE_DOUBLE = 0x01,
@@ -248,7 +248,7 @@ extension libbson
 	* This enumeration contains the various subtypes that may be used in a binary
 	* field. See http://bsonspec.org for more information.
 	*/
-	enum bson_subtype_t
+	public enum bson_subtype_t
 	{
 		BSON_SUBTYPE_BINARY = 0x00,
 		BSON_SUBTYPE_FUNCTION = 0x01,
@@ -444,9 +444,9 @@ extension libbson
 
 	public struct bson_error_t
 	{
-		uint32_t domain;
-		uint32_t code;
-		char[BSON_ERROR_BUFFER_SIZE] message;
-		uint8_t reserved; // For internal use only!
+		public uint32_t domain;
+		public uint32_t code;
+		public char[BSON_ERROR_BUFFER_SIZE] message;
+		public uint8_t reserved; // For internal use only!
 	}
 }
