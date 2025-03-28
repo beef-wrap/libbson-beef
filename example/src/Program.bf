@@ -1,6 +1,6 @@
 using System;
 using System.Diagnostics;
-using static libbsonBeef.libbson;
+using static libbson.libbson;
 
 namespace example;
 

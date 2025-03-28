@@ -1,7 +1,7 @@
 using System;
 using System.Interop;
 
-namespace libbsonBeef;
+namespace libbson;
 
 extension libbson
 {

@@ -8,4 +8,8 @@ StartupObject = "libbson_beef.Program"
 [Configs.Debug.Win64]
 OtherLinkFlags = "$(LinkFlags) ws2_32.lib"
 BeefLibType = "Static"
-LibPaths = ["$(ProjectDir)/lib/bson-static-1.0.lib"]
+LibPaths = ["$(ProjectDir)\\libs\\windows\\x64\\bson_d.lib"]
+
+[Configs.Release.Win64]
+OtherLinkFlags = "$(LinkFlags) ws2_32.lib"
+LibPaths = ["$(ProjectDir)\\libs\\windows\\x64\\bson.lib"]

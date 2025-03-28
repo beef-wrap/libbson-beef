@@ -17,7 +17,7 @@
 using System;
 using System.Interop;
 
-namespace libbsonBeef;
+namespace libbson;
 
 public static class libbson
 {
